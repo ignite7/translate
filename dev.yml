@@ -1,0 +1,114 @@
+version: "3"
+
+services:
+  api:
+    container_name: api
+    build:
+      context: .
+      dockerfile: compose/Dockerfile.env
+    depends_on:
+      - db
+    networks:
+      - network
+    restart: always
+    environment:
+      DJANGO_SETTINGS_MODULE: ${DJANGO_SETTINGS_MODULE}
+    working_dir: /usr/src/translate
+    entrypoint: sh entrypoints/api.sh
+    ports:
+      - "8000:8000"
+    expose:
+      - "8000"
+    volumes:
+      - .:/usr/src/translate
+
+  cli:
+    container_name: cli
+    image: translate_api
+    depends_on:
+      - api
+    networks:
+      - network
+    restart: always
+    working_dir: /usr/src/translate
+    entrypoint: tail -f /dev/null
+    volumes:
+      - .:/usr/src/translate
+
+  flower:
+    container_name: flower
+    image: translate_api
+    depends_on:
+      - celery
+    networks:
+      - network
+    restart: always
+    working_dir: /usr/src/translate
+    entrypoint: sh entrypoints/flower.sh
+    ports:
+      - "5555:5555"
+    expose:
+      - "5555"
+    volumes:
+      - .:/usr/src/translate
+
+  beat:
+    container_name: beat
+    image: translate_api
+    depends_on:
+      - celery
+    networks:
+      - network
+    restart: always
+    working_dir: /usr/src/translate
+    entrypoint: sh entrypoints/beat.sh
+    expose:
+      - "5555"
+    volumes:
+      - .:/usr/src/translate
+
+  celery:
+    container_name: celery
+    image: translate_api
+    depends_on:
+      - api
+      - rabbitmq
+    networks:
+      - network
+    restart: always
+    working_dir: /usr/src/translate
+    entrypoint: sh entrypoints/celery.sh
+    expose:
+      - "5555"
+    volumes:
+      - .:/usr/src/translate
+
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:3.8.9-alpine
+    networks:
+      - network
+    restart: always
+    expose:
+      - "5555"
+
+  db:
+    container_name: db
+    image: yobasystems/alpine-mariadb
+    networks:
+      - network
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    expose:
+      - "3306"
+    volumes:
+      - ./api/data/db:/var/lib/mysql
+      - ./api/data/db/logs:/var/log/mysql
+
+networks:
+  network:
+    driver: bridge

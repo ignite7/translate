@@ -1,0 +1,7 @@
+__pycache__/
+api/data
+*.pid
+.venv
+.env
+*.swp
+*.pem

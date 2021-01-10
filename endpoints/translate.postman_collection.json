@@ -1,0 +1,532 @@
+{
+	"info": {
+		"_postman_id": "215e433b-0d08-45c1-9233-85c7aaec4b5f",
+		"name": "translate",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Email Confirmation",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/users/email-confirmation?email={{email1}}&token={{token}}",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"email-confirmation"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "{{email1}}"
+										},
+										{
+											"key": "token",
+											"value": "{{token}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/users/login?email={{email1}}&password={{password}}",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"login"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "{{email1}}"
+										},
+										{
+											"key": "password",
+											"value": "{{password}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Signup",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/users/signup?email={{email1}}&username=sergio&password={{password}}&password_confirmation={{password}}",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"signup"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "{{email1}}"
+										},
+										{
+											"key": "username",
+											"value": "sergio"
+										},
+										{
+											"key": "password",
+											"value": "{{password}}"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "{{password}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Account",
+					"item": [
+						{
+							"name": "Retrieve",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/users/sergio",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"sergio"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/users/sergio?first_name=sergio&last_name=acosta&phone=999999999",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"sergio"
+									],
+									"query": [
+										{
+											"key": "first_name",
+											"value": "sergio"
+										},
+										{
+											"key": "last_name",
+											"value": "acosta"
+										},
+										{
+											"key": "phone",
+											"value": "999999999"
+										},
+										{
+											"key": "password",
+											"value": "Sergio123456789!",
+											"disabled": true
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Sergio123456789!",
+											"disabled": true
+										},
+										{
+											"key": "email",
+											"value": "hello@hello.com",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Send Reset Password",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/users/reset-password?email={{email1}}",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"reset-password"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "{{email1}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Reset Password",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/users/reset-password?token={{token}}&email={{email1}}&password={{password2}}&password_confirmation={{password2}}",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"reset-password"
+									],
+									"query": [
+										{
+											"key": "token",
+											"value": "{{token}}"
+										},
+										{
+											"key": "email",
+											"value": "{{email1}}"
+										},
+										{
+											"key": "password",
+											"value": "{{password2}}"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "{{password2}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Translations",
+			"item": [
+				{
+					"name": "Translate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/translations/translate?message=Hola&source=es&target=en&favorite=1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"translations",
+								"translate"
+							],
+							"query": [
+								{
+									"key": "message",
+									"value": "Hola"
+								},
+								{
+									"key": "source",
+									"value": "es"
+								},
+								{
+									"key": "target",
+									"value": "en"
+								},
+								{
+									"key": "favorite",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Identify",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/translations/identify?message=Hallo",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"translations",
+								"identify"
+							],
+							"query": [
+								{
+									"key": "message",
+									"value": "Hallo"
+								},
+								{
+									"key": "favorite",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Histories",
+			"item": [
+				{
+					"name": "Retrieve",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/histories/sergio",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"histories",
+								"sergio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete All",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/histories/sergio",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"histories",
+								"sergio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete ID",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/histories/sergio/49616807-2556-4ae6-8175-4705780e9fa3",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"histories",
+								"sergio",
+								"49616807-2556-4ae6-8175-4705780e9fa3"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Favorites",
+			"item": [
+				{
+					"name": "Retrieve",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/favorites/sergio",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"favorites",
+								"sergio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete All",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/favorites/sergio",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"favorites",
+								"sergio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete ID",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/favorites/sergio/49616807-2556-4ae6-8175-4705780e9fa3",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"favorites",
+								"sergio",
+								"49616807-2556-4ae6-8175-4705780e9fa3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/favorites/sergio/49616807-2556-4ae6-8175-4705780e9fa3",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"favorites",
+								"sergio",
+								"49616807-2556-4ae6-8175-4705780e9fa3"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

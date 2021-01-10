@@ -1,0 +1,28 @@
+<div class="container" style="text-align: center;">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1>Translate CLI</h1>
+    </div>
+  </div>
+</div>
+<div class="container" style="text-align: center;">
+  <div class="row">
+    <div class="col-lg-12">
+      <h3 style="color: #48215F;">
+        Hello @{{user.username}} it's time to verify your email.
+      </h3>
+      <h5 style="color: #48215F;">
+        You are one step to start using the translate CLI, 
+        please go to the link below to complete your verification.
+      </h5>
+    </div>
+  </div>
+</div>
+<div class="container" style="text-align: center;">
+  <div class="row">
+    <div class="col-lg-12">
+      <a href="https://www.{{host}}/email-confirmation?email={{user.email}}&token={{token}}"
+      class="btn btn-success btn-block">Verify my email address</a>
+    </div>
+  </div>
+</div>
