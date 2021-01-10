@@ -49,7 +49,7 @@ def get_dir(keys_path: str = '') -> str:
     return save_path
 
 
-def get_host(dev: bool = True, prod: bool = False) -> str:
+def get_host(dev: bool = False, prod: bool = True) -> str:
     """ Get DNS of the API. """
 
     if dev:

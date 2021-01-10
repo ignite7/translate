@@ -526,6 +526,46 @@
 				}
 			],
 			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Production",
+			"item": [
+				{
+					"name": "Login Example",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://ec2-18-134-181-101.eu-west-2.compute.amazonaws.com:8000/users/login?email={{email1}}&password={{password}}",
+							"protocol": "http",
+							"host": [
+								"ec2-18-134-181-101",
+								"eu-west-2",
+								"compute",
+								"amazonaws",
+								"com"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"login"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "{{email1}}"
+								},
+								{
+									"key": "password",
+									"value": "{{password}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"protocolProfileBehavior": {}
