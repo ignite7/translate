@@ -21,11 +21,11 @@ app.config_from_object('django.conf:settings', namespace='CELERY')
 app.conf.beat_schedule = {
     'clean_ec_and_ia_tokens': {
         'task': 'clean ec and ia tokens',
-        'schedule': crontab(hour=0)
+        'schedule': crontab(minute=0, hour=0)
     },
     'clean_rp_tokens': {
         'task': 'clean rp tokens',
-        'schedule': crontab(hour=3)
+        'schedule': crontab(minute=0, hour='*/3')
     },
 }
 
