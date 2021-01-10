@@ -86,8 +86,8 @@ services:
       DOMAIN_NAME: ${DOMAIN_NAME}
     working_dir: /usr/src/translate
     ports:
-      - "0.0.0.0:80:80"
-      - "0.0.0.0:443:443"
+      - "127.0.0.1:80:80"
+      - "127.0.0.1:443:443"
     volumes:
       - .:/usr/src/translate
 
