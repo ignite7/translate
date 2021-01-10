@@ -17,6 +17,6 @@ setup(
     py_modules=['main'],
     entry_points='''
         [console_scripts]
-        translate=main:cli
+        translate-cli=main:cli
     '''
 )
