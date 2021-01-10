@@ -5,9 +5,9 @@ from .base import *
 from .base import env
 
 # General
-DEBUG = True
+DEBUG = False
 SECRET_KEY = env('DEV_SECRET_KEY')
-ALLOWED_HOSTS = ['ec2-18-134-181-101.eu-west-2.compute.amazonaws.com']
+ALLOWED_HOSTS = ['thebackproject.xyz']
 
 # Database
 DATABASES = {
