@@ -55,6 +55,6 @@ def get_host(dev: bool = False, prod: bool = True) -> str:
     if dev:
         host = 'http://0.0.0.0:8000'
     else:
-        host = 'http://ec2-18-134-181-101.eu-west-2.compute.amazonaws.com:8000'
+        host = 'http://ec2-18-132-45-117.eu-west-2.compute.amazonaws.com:8000'
 
     return host

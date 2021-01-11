@@ -7,7 +7,7 @@ from .base import env
 # General
 DEBUG = False
 SECRET_KEY = env('DEV_SECRET_KEY')
-ALLOWED_HOSTS = ['ec2-18-134-181-101.eu-west-2.compute.amazonaws.com']
+ALLOWED_HOSTS = ['ec2-18-132-45-117.eu-west-2.compute.amazonaws.com']
 
 # Database
 DATABASES = {
